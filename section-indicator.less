@@ -1,0 +1,123 @@
+@import (reference) 'mixins.less';
+
+.section-indicator {
+  @_color_indicator: #444;
+  @_color_text: @_color_indicator;
+
+  @_font: 'Open Sans', sans-serif;
+
+  @_inner_circle_size: 12px;
+  @_inner_circle_border_size: 1px;
+
+  @_outer_circle_size: 26px;
+  @_outer_circle_border_size: 1px;
+
+  @_main_padding_gap: 19.5px;
+
+  font-family: @_font;
+  text-align: center;
+  padding: 15px 0;
+  overflow: hidden;
+  width: 100%;
+  max-width: @_outer_circle_size + (@_main_padding_gap * 2);
+
+  &, & * {
+    box-sizing: border-box;
+  }
+
+  ul {
+    margin: 0;
+    margin-bottom: 30px;
+    padding: 0;
+
+    li {
+      list-style: none;
+
+      &:not(:last-child) {
+        margin-bottom: 24px;
+      }
+
+      a {
+        display: inline-block;
+        .scale(1);
+        .transition(.4s);
+
+        &:hover {
+          .scale(1.35);
+          .transition(.4s);
+        }
+      }
+
+      span {
+        position: relative;
+        display: block;
+        background-color: transparent;
+        border: solid @_inner_circle_border_size @_color_indicator;
+        width: @_inner_circle_size;
+        height: @_inner_circle_size;
+        .rounded(100%);
+        .transition(.5s);
+
+        i {
+          position: absolute;
+          display: block;
+          width: @_outer_circle_size;
+          height: @_outer_circle_size;
+          border: solid @_outer_circle_border_size @_color_indicator;
+          /*top: calc(50% - (@_outer_circle_size / 2));
+          left: calc(50% - (@_outer_circle_size / 2));*/
+          top: -8px;
+          left: -8px;
+          opacity: 0;
+          .scale(.7);
+          .rounded(100%);
+          .transition(.5s);
+        }
+      }
+
+      &.active {
+        a {
+          pointer-events: none;
+        }
+
+        span {
+          background-color: @_color_indicator;
+          .transition();
+
+          i {
+            opacity: 1;
+            .scale(1);
+            .transition();
+          }
+        }
+      }
+    }
+  }
+
+  .numbering {
+    color: @_color_text;
+    font-size: 20px;
+
+    &:before {
+      content: '';
+      width: 1px;
+      height: 60px;
+      background-color: @_color_text;
+      margin: 0 auto;
+      margin-bottom: 30px;
+      display: block;
+    }
+
+    span {
+      &.current {
+        font-weight: 400;
+        color: darken(@_color_text, 40%);
+      }
+
+      &.max {
+        font-size: 75%;
+        opacity: .6;
+      }
+    }
+  }
+}

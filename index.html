@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Section Indicator</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,600,700" rel="stylesheet">
+    <style type="text/css">
+        html,body{background-color: #fff;}
+    </style>
+    <link rel="stylesheet" type="text/css" href="section-indicator.css">
+</head>
+<body>
+    <h1>Section Indicator</h1>
+    <div class="section-indicator">
+        <ul>
+            <li class="active">
+                <a href="#"><span><i></i></span></a>
+            </li>
+            <li>
+                <a href="#"><span><i></i></span></a>
+            </li>
+            <li>
+                <a href="#"><span><i></i></span></a>
+            </li>
+            <li>
+                <a href="#"><span><i></i></span></a>
+            </li>
+            <li>
+                <a href="#"><span><i></i></span></a>
+            </li>
+            <li>
+                <a href="#"><span><i></i></span></a>
+            </li>
+            <li>
+                <a href="#"><span><i></i></span></a>
+            </li>
+        </ul>
+        <div class="numbering">
+            <span class="current">01</span><span class="max">/07</span>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="section-indicator.js"></script>
+    <script type="text/javascript">
+        var $sectionIndicator = new sectionIndicator();
+    </script>
+</body>
+</html>
